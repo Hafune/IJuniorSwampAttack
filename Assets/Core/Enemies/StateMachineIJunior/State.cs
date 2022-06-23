@@ -2,28 +2,19 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class State : MonoBehaviour
+public abstract class State : MonoBehaviour
 {
     [SerializeField] private List<Transition> _transitions;
 
-    protected Player Target { get; set; }
-
-    public void Enter(Player target)
+    public void Enter()
     {
-        Target = target;
         enabled = true;
-
-        _transitions.ForEach(transition =>
-        {
-            transition.enabled = true;
-            transition.Init(target);
-        });
+        _transitions.ForEach(transition => transition.enabled = true);
     }
 
     public bool TryGetNext(out State nextState)
     {
         nextState = _transitions.FirstOrDefault(transition => transition.NeedTransit)?.TargetState;
-
         return nextState != null;
     }
 

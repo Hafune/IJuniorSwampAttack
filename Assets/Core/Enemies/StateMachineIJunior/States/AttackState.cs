@@ -1,12 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
 public class AttackState : State
 {
     [SerializeField] private int _damage;
     [SerializeField] private float _delay;
     [SerializeField] private Animator _animator;
-
+    
+    private Player _target;
     private float _lastAttackTime;
+
+    private void Start() => _target = GetComponent<Enemy>().Target;
 
     private void Update()
     {
@@ -22,6 +27,6 @@ public class AttackState : State
     private void Attack()
     {
         _animator.Play("Attack");
-        Target.ApplyDamage(_damage);
+        _target.ApplyDamage(_damage);
     }
 }

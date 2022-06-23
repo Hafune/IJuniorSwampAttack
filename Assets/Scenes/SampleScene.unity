@@ -2234,7 +2234,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.078378975, y: 0.20901024}
+  m_Offset: {x: -0.078378975, y: 0.87}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2271,7 +2271,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1504156072}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d363e1637f54463b086eeb0f2f85926, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f230792f7734f1e8f33fcd9bd1f0110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions: []
@@ -2285,7 +2285,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1504156072}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8ca93fb5ce489fa6d7eabd702b6031, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a1e0a841901467192078777cc3db21c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1504156078}
@@ -2298,7 +2298,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1504156072}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 921d85712d9f4cecb6dcc30646a145f0, type: 3}
+  m_Script: {fileID: 11500000, guid: a5f18c851ef34280bcbc71effa3bb363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions:
@@ -2315,7 +2315,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1504156072}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4e34a48461c4104799e199b9820aa4d, type: 3}
+  m_Script: {fileID: 11500000, guid: d1ea7c24c22d4c35aae0a9cfbaa0bff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1504156080}
@@ -2330,7 +2330,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1504156072}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12631a9a42144929843a7b2592601b56, type: 3}
+  m_Script: {fileID: 11500000, guid: e056b7c85a1e4e62b1fefbfef73326b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions:
@@ -2345,7 +2345,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1504156072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02bcad6db33cc2a43b0ef1ea4da8d9ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b9f216f4cd042d6a3e548c70d84c8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _startState: {fileID: 1504156082}
