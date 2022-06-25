@@ -34,6 +34,16 @@ namespace Lib
         }
 
         public static float Angle(this Vector2 vector) => (float) (Math.Atan2(vector.y, vector.x) * (180 / Math.PI));
+        
+        public static Vector2 RotateBy(this Vector2 v, float a)
+        {
+            a *= Mathf.Deg2Rad;
+            var ca = Math.Cos(a);
+            var sa = Math.Sin(a);
+            var rx = v.x * ca - v.y * sa;
+
+            return new Vector2((float)rx, (float)(v.x * sa + v.y * ca));
+        }
 
         public static Vector3 Copy(this Vector3 vector, float? x = null, float? y = null, float? z = null)
         {
