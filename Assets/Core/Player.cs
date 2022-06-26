@@ -1,12 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private UnityEvent<float> _onHealthChanged;
+    [SerializeField] private UnityEvent<string> _onMoneyChanged;
     [SerializeField] private int _maxHealth;
     [SerializeField] private List<Weapon> _weapons;
     [SerializeField] private Transform _shootPoint;
-    [SerializeField] private Animator _animator;
 
     private Weapon _currentWeapon;
     private int _currentHealth;
@@ -14,7 +17,28 @@ public class Player : MonoBehaviour
 
     public int Money { get; private set; }
 
-    public void OnEnemyDied(int reward) => Money += reward;
+    public void Shoot(PointerEventData eventData) => _currentWeapon.Shoot(_shootPoint);
+
+    public void ApplyDamage(int damage)
+    {
+        _currentHealth -= damage;
+        _onHealthChanged?.Invoke((float) _currentHealth / _maxHealth);
+
+        if (_currentHealth <= 0)
+            Destroy(gameObject);
+    }
+
+    public void AddMoney(int money)
+    {
+        Money += money;
+        _onMoneyChanged?.Invoke(Money.ToString());
+    }
+
+    public void DropMoney(int money)
+    {
+        Money -= money;
+        _onMoneyChanged?.Invoke(Money.ToString());
+    }
 
     private void Awake() => _input = new MyPlayerInput();
 
@@ -27,22 +51,4 @@ public class Player : MonoBehaviour
         _currentWeapon = _weapons[0];
         _currentHealth = _maxHealth;
     }
-
-    private void Update()
-    {
-        if (_input.Touch.TouchPress.WasPressedThisFrame())
-        {
-            _currentWeapon.Shoot(_shootPoint);
-        }
-    }
-
-    public void ApplyDamage(int damage)
-    {
-        _currentHealth -= damage;
-
-        if (_currentHealth <= 0)
-            Destroy(gameObject);
-    }
-
-    public void AddMoney(int money) => Money += money;
 }

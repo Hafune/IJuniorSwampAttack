@@ -1,23 +1,23 @@
 using System;
 using System.Collections.Generic;
-using Lib;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour
 {
-    public UnityEvent AllEnemySpawned;
-
     //v2021,3,4f NonReorderable - костыль, решает баг с отображением первого элемента списка в инспекторе
     [NonReorderable] [SerializeField] private List<Wave> _waves;
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private Player _player;
+    [SerializeField] private UnityEvent _allEnemySpawned;
+    [SerializeField] private UnityEvent<float> _onProgressChange;
 
     private Wave _currentWave;
     private Wave unit;
     private int _currentWaveIndex;
     private float _currentSpawnTime;
     private int _spawned;
+    private int _dying;
 
     public void TryNextWave()
     {
@@ -27,6 +27,7 @@ public class Spawner : MonoBehaviour
         SetWave(++_currentWaveIndex);
         gameObject.SetActive(true);
         _spawned = 0;
+        _dying = 0;
         _currentSpawnTime = 0f;
     }
 
@@ -42,11 +43,11 @@ public class Spawner : MonoBehaviour
         InstantiateEnemy();
         _spawned++;
         _currentSpawnTime = 0f;
-        
+
         if (_spawned < _currentWave.EnemyCount)
             return;
 
-        AllEnemySpawned?.Invoke();
+        _allEnemySpawned?.Invoke();
         gameObject.SetActive(false);
     }
 
@@ -63,6 +64,7 @@ public class Spawner : MonoBehaviour
     {
         enemy.Dying -= OnEnemyDying;
         _player.AddMoney(enemy.Reward);
+        _onProgressChange?.Invoke((float) ++_dying / _currentWave.EnemyCount);
     }
 
     [Serializable]
