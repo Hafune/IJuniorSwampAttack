@@ -1,13 +1,12 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Enemy))]
-public class EnemyStateMachine : MonoBehaviour
+public class StateMachine : MonoBehaviour
 {
     [SerializeField] private State _startState;
 
     private State _currentState;
 
-    private void Start() => ResetState(_startState);
+    private void Start() => ResetState(_startState); 
 
     private void Update()
     {
