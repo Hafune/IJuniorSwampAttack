@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private int _maxHealth;
     [SerializeField] private List<Weapon> _weapons;
     [SerializeField] private Transform _shootPoint;
+    [SerializeField] private GameObject _weaponViewContainer;
+    [SerializeField] private PlayerWeaponView _playerWeaponView;
 
     private Weapon _currentWeapon;
     private int _currentHealth;
@@ -40,6 +42,14 @@ public class Player : MonoBehaviour
         _onMoneyChanged?.Invoke(Money.ToString());
     }
 
+    public bool HasWeapon(Weapon weapon) => _weapons.Exists(_weapon => _weapon.GetType() == weapon.GetType());
+
+    public void AddWeapon(Weapon weapon)
+    {
+        _weapons.Add(weapon);
+        AddWeaponView(weapon);
+    }
+
     private void Awake() => _input = new MyPlayerInput();
 
     private void OnEnable() => _input.Enable();
@@ -50,5 +60,12 @@ public class Player : MonoBehaviour
     {
         _currentWeapon = _weapons[0];
         _currentHealth = _maxHealth;
+        _weapons.ForEach(AddWeaponView);
+    }
+
+    private void AddWeaponView(Weapon weapon)
+    {
+        var view = Instantiate(_playerWeaponView, _weaponViewContainer.transform);
+        view.Initialize(weapon, () => _currentWeapon = weapon);
     }
 }

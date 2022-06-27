@@ -123,6 +123,84 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &23630898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 23630901}
+  - component: {fileID: 23630900}
+  - component: {fileID: 23630899}
+  m_Layer: 5
+  m_Name: PlayerWeapons
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &23630899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23630898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 50
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &23630900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23630898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
+--- !u!224 &23630901
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23630898}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000799, y: 1.0000799, z: 1.0000799}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1756138813}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 1622, y: -193}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 1}
 --- !u!1 &26900274
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +394,9 @@ MonoBehaviour:
   - Template: {fileID: 5757547018096578975, guid: a5a14dcb103765a4aa736f273ebda7f4, type: 3}
     SpawnDelay: 1.5
     EnemyCount: 2
+  - Template: {fileID: 5757547018096578975, guid: 97ed59c3dae594d4eafe0505a3df6c7e, type: 3}
+    SpawnDelay: 1
+    EnemyCount: 8
   - Template: {fileID: 5757547018096578975, guid: 97ed59c3dae594d4eafe0505a3df6c7e, type: 3}
     SpawnDelay: 1
     EnemyCount: 4
@@ -989,8 +1070,10 @@ MonoBehaviour:
         m_CallState: 2
   _maxHealth: 50
   _weapons:
-  - {fileID: -7702930092697851334, guid: 59a155b927f73354193ea76cbf4f098c, type: 3}
+  - {fileID: 5522924894149843467, guid: aec69d45f418aa443a0b5626e2889b54, type: 3}
   _shootPoint: {fileID: 1394253636}
+  _weaponViewContainer: {fileID: 23630898}
+  _playerWeaponView: {fileID: 7466191122989285159, guid: e077980243b1f874d8deead925c4db03, type: 3}
 --- !u!1 &501694346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,7 +1854,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 788, y: 326}
+  m_AnchoredPosition: {x: -852, y: 326}
   m_SizeDelta: {x: 118, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &692612690
@@ -4652,7 +4735,7 @@ RectTransform:
   - {fileID: 809994413}
   - {fileID: 772791818}
   m_Father: {fileID: 1756138813}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4714,6 +4797,7 @@ MonoBehaviour:
   - {fileID: -7702930092697851334, guid: 59a155b927f73354193ea76cbf4f098c, type: 3}
   _template: {fileID: 6993512162669480636, guid: 28cea657bdbb0e7419b7bebb9be7893b, type: 3}
   _itemContainer: {fileID: 571694930}
+  _player: {fileID: 336700568}
 --- !u!1 &1713210394
 GameObject:
   m_ObjectHideFlags: 0
@@ -4896,6 +4980,7 @@ RectTransform:
   - {fileID: 2014604575}
   - {fileID: 1296457001}
   - {fileID: 608164355}
+  - {fileID: 23630901}
   - {fileID: 1649408041}
   m_Father: {fileID: 0}
   m_RootOrder: 5
