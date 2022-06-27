@@ -15,7 +15,6 @@ public class WeaponView : MonoBehaviour
     private bool _forSale;
 
     public Weapon Weapon => _weapon;
-
     public bool ForSale => _forSale;
 
     public void Initialize(Weapon weapon, Action<WeaponView> onBuyClick)

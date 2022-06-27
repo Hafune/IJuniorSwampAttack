@@ -53,7 +53,7 @@ public class Spawner : MonoBehaviour
 
     private void InstantiateEnemy()
     {
-        Enemy enemy = Instantiate(_currentWave.Template, _spawnPoint.position, _spawnPoint.rotation);
+        var enemy = Instantiate(_currentWave.Template, _spawnPoint.position, _spawnPoint.rotation);
         enemy.Init(_player);
         enemy.Dying += OnEnemyDying;
     }

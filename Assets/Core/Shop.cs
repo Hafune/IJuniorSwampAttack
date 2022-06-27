@@ -8,10 +8,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private GameObject _itemContainer;
     [SerializeField] private Player _player;
 
-    private void Start()
-    {
-        _weapons.ForEach(weapon => AddItem(weapon));
-    }
+    private void Start() => _weapons.ForEach(AddItem);
 
     private void AddItem(Weapon weapon)
     {
